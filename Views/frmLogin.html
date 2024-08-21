@@ -1,0 +1,59 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Heinrich Lambrechts">
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('/Images/Login_Background.jpg');">
+            <div class="wrap-login100">
+                <div class="login100-form validate-form">
+
+                    <!-- User input username -->
+                    <div class="wrap-input100 validate-input">
+                        <input type="text" class="input100" id="username" placeholder="Username" autocomplete="off" />
+                    </div>
+
+                    <!-- User input password -->
+                    <div class="wrap-input100 validate-input">
+                        <input type="password" class="input100" id="password" placeholder="Password" autocomplete="off" />
+                    </div>
+
+                    <!-- Button to validate username & password -->
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" id="login" type="button">
+                            <div id="button-text">
+                                Log in
+                            </div>
+                            <div id="button-loading">
+                                <div class="spinner-border text-white mx-1" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Error if fields are empty or contain incorrect data -->
+                    <div>
+                        <p class="" id="error"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var script = document.createElement('script');
+        script.src = '../Controllers/frmLogin.js?v=' + new Date().getTime();
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
