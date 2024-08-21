@@ -700,6 +700,7 @@ function insertContact(response) {
 }
 //#endregion
 
+//#region "Delete Contact"
 function deleteSQL(response) {
 
     if (response == undefined) {
@@ -735,32 +736,26 @@ function deleteSQL(response) {
     }
 
 }
+//#endregion
 
+//#region "Update Contact"
 function updateSQL(response) {
 
     if (response == undefined) {
 
         var parameterData =
         {
-            id: selectedIP,
-            user: Employee.id,
-            company: sctCompany.value,
-            allocation: sctAllocation.value,
-            device: txtDeviceName.value,
-            type: sctDeviceType.value,
-            range: txtRangeName.value,
-            address: txtIPAddress.value,
-            mask: txtSubnetMask.value,
-            gateway: txtDefaultGateway.value,
-            dns1: txtDNS1.value,
-            dns2: txtDNS2.value,
-            comment: txtComment.value.toUpperCase()
+            EntryID: txtContactEntryId.value,
+            Name: txtName.value,
+            Email: txtEmail.value,
+            Phone: txtPhone.value,
+            Address: txtAddress.value
         };
 
 
         $.ajax({
             type: 'POST',
-            url: webAPIURL + 'Update/updateSQLIPStructure',
+            url: webAPIURL + 'Update/updateContact',
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             data: JSON.stringify(parameterData),
@@ -783,6 +778,7 @@ function updateSQL(response) {
         });
     }
 }
+//#endregion
 
 //Initialize at the end
 SetControlsInit();
