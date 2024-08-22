@@ -1,8 +1,101 @@
-﻿<!DOCTYPE html>
+﻿<!--<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title></title>-->
+<!-- Include jQuery -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">-->
+<!-- TOOLBAR BUTTONS PANEL -->
+<!--<div class="m-2">
+    <div class="row" id="Pnltoolbar">
+        <nav class="button_toolbar">
+            <button type="button" style="line-height: 1.2 !important" class="btn btn-primary mx-1" id="btnAddContact">
+                Create New Contact
+            </button>-->
+<!--<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#expandableDiv" aria-expanded="false" aria-controls="expandableDiv">
+    Filters
+</button>-->
+<!--</nav>
+    </div>
+</div>-->
+<!--<div class="collapse mt-2" id="expandableDiv">
+    <div class="card card-body border-0 m-0 p-0">
+        <div class="bg-secondary-subtle border rounded p-2 mt-1 border-dark-subtle">
+            <div class="row">-->
+<!-- Name -->
+<!--<div class="col-md-3">
+    <div class="input-group">
+        <label class="input-group-text lbl-w-2 std-font-size" for="txtLongDescription">
+            Long Description
+        </label>
+        <select class="form-control" id="sctName">
+        </select>
+    </div>
+</div>-->
+<!-- Email Address -->
+<!--<div class="col-md-3">
+    <div class="input-group">
+        <label class="input-group-text lbl-w-2 std-font-size">Email Address</label>
+        <select class="form-control" id="sctEmailAddress">
+        </select>
+    </div>
+</div>-->
+<!-- Search Button -->
+<!--<div class="col-xl-2 col-md-4 mb-1">
+    <div class="d-flex justify-content-end">-->
+<!-- Magnifying glass icon -->
+<!--<button class="btn btn-secondary" type="button" id="btnFilter">
+                            Search <i class="fa-solid fa-magnifying-glass" style="margin-left: 1px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- Table for displaying data -->
+<!--<div id="dgvData" class="row m-1 mt-2">
+    <div class="col-12 p-0">
+        <div class="table-responsive">-->
+<!-- DataTable with headers -->
+<!--<table id="dgvData" class="table table-hover table-bordered table-striped border border-dark-subtle">
+    <thead>
+        <tr>-->
+<!--<th scope= "col" class=" d-none d-lg-table-cell">ID</th>-->
+<!--<th scope="col" class="bg-secondary-subtle">Name</th>
+        <th scope="col" class="bg-secondary-subtle">Email Address</th>
+        <th scope="col" class="bg-secondary-subtle">Phone Number</th>
+        <th scope="col" class="bg-secondary-subtle">Address</th>
+    </tr>
+</thead>
+<tbody>-->
+<!--Data will be populated here dynamically-->
+<!--</tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!-- Include JavaScript file -->
+<!--<script>
+        var script = document.createElement('script');
+        script.src = '/Controllers/ContactsController/frmContactsList.js?v=' + new Date().getTime();
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contact List</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -10,67 +103,24 @@
 <body>
     <div class="container-fluid">
         <!-- TOOLBAR BUTTONS PANEL -->
-        <div class="m-2">
-            <div class="row" id="Pnltoolbar">
-                <nav class="button_toolbar">
-                    <button type="button" style="line-height: 1.2 !important" class="btn btn-primary mx-1" id="btnAddContact">
-                        Create New Contact
-                    </button>
-                    <!--<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#expandableDiv" aria-expanded="false" aria-controls="expandableDiv">
-                        Filters
-                    </button>-->
-                </nav>
-            </div>
+        <div class="d-flex justify-content-start my-3">
+            <button type="button" class="btn btn-primary" id="btnAddContact">
+                Create New Contact
+            </button>
         </div>
 
-        <!--<div class="collapse mt-2" id="expandableDiv">
-            <div class="card card-body border-0 m-0 p-0">
-                <div class="bg-secondary-subtle border rounded p-2 mt-1 border-dark-subtle">
-                    <div class="row">-->
-        <!-- Name -->
-        <!--<div class="col-md-3">
-            <div class="input-group">
-                <label class="input-group-text lbl-w-2 std-font-size" for="txtLongDescription">
-                    Long Description
-                </label>
-                <select class="form-control" id="sctName">
-                </select>
-            </div>
-        </div>-->
-        <!-- Email Address -->
-        <!--<div class="col-md-3">
-            <div class="input-group">
-                <label class="input-group-text lbl-w-2 std-font-size">Email Address</label>
-                <select class="form-control" id="sctEmailAddress">
-                </select>
-            </div>
-        </div>-->
-        <!-- Search Button -->
-        <!--<div class="col-xl-2 col-md-4 mb-1">
-            <div class="d-flex justify-content-end">-->
-        <!-- Magnifying glass icon -->
-        <!--<button class="btn btn-secondary" type="button" id="btnFilter">
-                                    Search <i class="fa-solid fa-magnifying-glass" style="margin-left: 1px;"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
         <!-- Table for displaying data -->
-        <div id="dgvData" class="row m-1 mt-2">
-            <div class="col-12 p-0">
+        <div class="row">
+            <div class="col-12">
                 <div class="table-responsive">
                     <!-- DataTable with headers -->
-                    <table id="dgvData" class="table table-hover table-bordered table-striped border border-dark-subtle">
-                        <thead>
+                    <table id="dgvData" class="table table-hover table-bordered table-striped table-sm">
+                        <thead class="table-light">
                             <tr>
-                                <!--<th scope= "col" class=" d-none d-lg-table-cell">ID</th>-->
-                                <th scope="col" class="bg-secondary-subtle">Name</th>
-                                <th scope="col" class="bg-secondary-subtle">Email Address</th>
-                                <th scope="col" class="bg-secondary-subtle">Phone Number</th>
-                                <th scope="col" class="bg-secondary-subtle">Address</th>
+                                <th scope="col" class="text-center">Name</th>
+                                <th scope="col" class="text-center">Email Address</th>
+                                <th scope="col" class="text-center">Phone Number</th>
+                                <th scope="col" class="text-center">Address</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -81,6 +131,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Include JavaScript file -->
     <script>
         var script = document.createElement('script');

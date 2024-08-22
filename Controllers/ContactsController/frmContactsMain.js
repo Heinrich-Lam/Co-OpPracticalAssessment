@@ -1,5 +1,5 @@
 ﻿// Test for IE at the beginning
-TestBrowserIsInternetExplorer();
+//TestBrowserIsInternetExplorer();
 
 //Main Variables
 
@@ -494,11 +494,12 @@ function Canceling() {
     //} else if (WindowCurrentState == EnumWindowState.ADDING) {
     //    window.populateBody('/Views/Company_Management/frmCompanyManagementList.html');
     //}
-    window.populateBody('/Views/ContactsView/frmContactList.html');
+
+    window.location.href = "/Views/ContactsView/frmContactList.html"; // Direct navigation
 }
 
 function Returning() {
-    window.populateBody('/Views/ContactsView/frmContactList.html');
+    window.location.href = "/Views/ContactsView/frmContactList.html"; // Direct navigation
 }
 // #endregion
 
