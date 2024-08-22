@@ -1,7 +1,8 @@
 ﻿// Test for IE at the beginning
 //TestBrowserIsInternetExplorer();
 
-var webAPIURL = "https://localhost:7291/api/Contacts/";
+var webAPIURL = "https://localhost:7145/api/Contact/"; 
+//var webAPIURL = "https://localhost:7077/api/Contact/";
 
 //window.fillHeader("Contacts List");
 
@@ -24,7 +25,6 @@ function DataLoad() {
     console.log("DataLoad is hit");
     if (ValidateFields()) {
         var postData = {
-            EntryID: 0,
         }
 
         // Sends post data to C# side using a JSON format

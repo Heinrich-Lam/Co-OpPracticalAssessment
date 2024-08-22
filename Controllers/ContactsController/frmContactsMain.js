@@ -14,7 +14,8 @@ var UserSecurity;
 
 var Employee = [];
 
-var webAPIURL = "https://localhost:7291/api/Contacts/"; //TEST
+var webAPIURL = "https://localhost:7145/api/Contact/"; 
+//var webAPIURL = "https://localhost:7077/api/Contact/";
 
 var WindowCurrentState = EnumWindowState.LOCKED;
 

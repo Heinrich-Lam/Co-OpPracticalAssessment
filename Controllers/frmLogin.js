@@ -21,8 +21,8 @@ function login() {
 
     if (username !== "" && password !== "") {
         var postdata = {
-            name: username,
-            password: password
+            Name: username,
+            Password: password
         }
 
         $.ajax({
