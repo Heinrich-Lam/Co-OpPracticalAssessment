@@ -220,8 +220,3 @@ window.onload = function () {
     DataLoad();
 };
 
-//$(document).ready(function () {
-//    window.showLoading();
-
-//    DataLoad();
-//});
