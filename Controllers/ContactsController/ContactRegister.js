@@ -3,11 +3,11 @@
 var webAPIURL = "https://localhost:7145/api/Contact/";
 //var webAPIURL = "https://localhost:7077/api/Contact/";
 
-var txtContactEntryId = document.getElementById('txtContactEntryId');
+var txtUserEntryId = document.getElementById('txtUserEntryId');
 var txtName = document.getElementById('txtName');
+var txtSurname = document.getElementById('txtSurname');
 var txtEmail = document.getElementById('txtEmail');
-var txtPhone = document.getElementById('txtPhone');
-var txtAddress = document.getElementById('txtAddress');
+var txtPassword = document.getElementById('txtPassword');
 
 
 //var btnAdd = document.getElementById("btnAdd");
@@ -15,15 +15,6 @@ var btnSave = document.getElementById("btnSave");
 var btnEdit = document.getElementById("btnEdit");
 var btnDelete = document.getElementById("btnDelete");
 var btnBack = document.getElementById("btnBack");
-
-// Function to clear input fields
-function clearFields() {
-    txtContactEntryId.value = "";
-    txtName.value = "";
-    txtEmail.value = "";
-    txtPhone.value = "";
-    txtAddress.value = "";
-}
 
 // Function to display message
 function showMessage(message, type) {
@@ -33,46 +24,41 @@ function showMessage(message, type) {
     document.body.appendChild(msgBox);
 }
 
-// Event listener for Add button
-//btnAdd.addEventListener('click', function () {
-//    clearFields();
-//});
-
 // Event listener for Edit button
 btnEdit.addEventListener('click', function () {
     // Assuming you have a way to select a contact to edit
     // This part needs to be implemented based on how you manage selections
-    updateContact();
+    updateUser();
 });
 
 // Event listener for Save button
 btnSave.addEventListener('click', function () {
-    insertContact();
+    insertUser();
 });
 
 // Event listener for Delete button
 btnDelete.addEventListener('click', function () {
-    deleteContact();
+    deleteUser();
 });
 
 // Event listener for Back button
 btnBack.addEventListener('click', function () {
     // Navigate back to the previous screen
-    window.location.href = "/Views/ContactsView/frmContactsList.html";
+    window.location.href = "/Views/frmLogin.html";
 });
 
-function insertContact() {
+function insertUser() {
     var parameterData = {
         Name: $('#txtName').val(),
+        Surname: $('#txtSurname').val(),
         Email: $('#txtEmail').val(),
-        Phone: $('#txtPhone').val(),
-        Address: $('#txtAddress').val(),
+        Password: $('#txtPassword').val(),
         History: 0
     };
 
     $.ajax({
         type: 'POST',
-        url: webAPIURL + 'Insert/insertContact',
+        url: webAPIURL + 'Insert/insertUser',
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         data: JSON.stringify(parameterData),
@@ -84,10 +70,10 @@ function insertContact() {
             }
         },
         success: function () {
-            var msg = "Contact Successfully saved into the system.";
+            var msg = "User Successfully saved into the system.";
             alert(msg); // Using standard alert for success message
             // Optionally, reset the form or navigate away
-            window.location.href = "/Views/ContactsView/frmContactsList.html";
+            window.location.href = "/Views/frmLogin.html";
         },
         error: function (error) {
             var ex = window.FormatHttpResponseData(error);
@@ -97,14 +83,14 @@ function insertContact() {
 }
 
 
-function deleteContact() {
+function deleteUser() {
     var parameterData = {
-        EntryID: $('#txtContactEntryId').val()
+        EntryID: $('#txtUserEntryId').val()
     };
 
     $.ajax({
         type: 'POST',
-        url: webAPIURL + 'Delete/deleteContact',
+        url: webAPIURL + 'Delete/deleteUser',
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         data: JSON.stringify(parameterData),
@@ -116,10 +102,10 @@ function deleteContact() {
             }
         },
         success: function () {
-            var msg = "Successfully marked as History on the System.";
+            var msg = "Successfully removed from the System.";
             alert(msg); // Using standard alert for success message
             // Redirect or refresh the page as needed
-            window.location.href = "/Views/ContactsView/frmContactsList.html";
+            window.location.href = "/Views/frmLogin.html";
         },
         error: function (error) {
             var ex = window.FormatHttpResponseData(error);
@@ -129,18 +115,18 @@ function deleteContact() {
 }
 
 
-function updateContact() {
+function updateUser() {
     var parameterData = {
-        EntryID: $('#txtContactEntryId').val(),
+        EntryID: $('#txtUserEntryId').val(),
         Name: $('#txtName').val(),
+        Surname: $('#txtSurname').val(),
         Email: $('#txtEmail').val(),
-        Phone: $('#txtPhone').val(),
-        Address: $('#txtAddress').val()
+        Password: $('#txtPassword').val()
     };
 
     $.ajax({
         type: 'POST',
-        url: webAPIURL + 'Update/updateContact',
+        url: webAPIURL + 'Update/updateUser',
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         data: JSON.stringify(parameterData),
@@ -154,7 +140,7 @@ function updateContact() {
         success: function () {
             var msg = "Successfully updated in the System.";
             alert(msg); // Using standard alert for success message
-            window.location.href = "/Views/ContactsView/frmContactsList.html";
+            window.location.href = "/Views/frmLogin.html";
         },
         error: function (error) {
             var ex = window.FormatHttpResponseData(error);
@@ -166,9 +152,11 @@ function updateContact() {
 if (contactId) {
     var postData = { EntryID: contactId };
 
+    txtPassword.disabled = true;
+
     $.ajax({
         type: 'POST',
-        url: webAPIURL + 'Read/readContactInfo',
+        url: webAPIURL + 'Read/readUserInfo',
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(postData),
@@ -185,11 +173,10 @@ if (contactId) {
             // Check if data is an array and has the expected structure
             if (Array.isArray(data) && data.length > 0) {
                 // Populate main view elements with the fetched data
-                txtContactEntryId.value = data[0].ENTRY_ID || '';
+                txtUserEntryId.value = data[0].ENTRY_ID || '';
                 txtName.value = data[0].NAME || '';
+                txtSurname.value = data[0].SURNAME || '';
                 txtEmail.value = data[0].EMAIL || '';
-                txtPhone.value = data[0].PHONE || '';
-                txtAddress.value = data[0].ADDRESS || '';
             } else {
                 console.warn("Unexpected data format:", data);
             }
@@ -200,28 +187,3 @@ if (contactId) {
         }
     });
 }
-
-
-//if (contactId) {
-//    var postData = { EntryID: contactId };
-
-//    $.ajax({
-//        type: 'POST',
-//        url: webAPIURL + 'Read/readContactInfo',
-//        contentType: 'application/json',
-//        dataType: 'json',
-//        data: JSON.stringify(postData),
-//        success: function (data) {// Populate main view elements with the fetched data
-//            console.log("Retrieved Entry ID ", data);
-//            txtContactEntryId.value = data[0].ENTRY_ID;
-//            txtName.value = data[0].NAME;
-//            txtEmail.value = data[0].EMAIL;
-//            txtPhone.value = data[0].PHONE;
-//            txtAddress.value = data[0].ADDRESS;
-//        },
-//        error: function (error) {
-//            console.error("Error fetching contact:", error);
-//        }
-//    });
-//}
-

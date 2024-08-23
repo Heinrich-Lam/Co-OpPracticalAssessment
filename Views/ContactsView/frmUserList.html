@@ -14,23 +14,11 @@
     <div class="container-fluid">
         <!-- TOOLBAR BUTTONS PANEL -->
         <div class="d-flex justify-content-start my-3">
-            <button type="button" class="btn btn-primary me-2" id="btnAddContact">
-                Create New Contact
+            <button type="button" class="btn btn-primary me-2" id="btnAddUser">
+                Create New User
             </button>
-            <button type="button" class="btn btn-primary me-2" id="btnViewUser">
-                View Saved User
-            </button>
-
-            <!-- Dropdown Box -->
-            <select class="form-select me-2" id="statusFilter">
-                <option value="0">Active</option>
-                <option value="1">Inactive</option>
-                <option value="">All</option>
-            </select>
-
-            <!-- Search Button -->
-            <button type="button" class="btn btn-secondary" id="btnSearch">
-                Search
+            <button type="button" class="btn btn-primary me-2" id="btnBack">
+                View Contact Information
             </button>
         </div>
 
@@ -43,9 +31,8 @@
                         <thead class="table-light">
                             <tr>
                                 <th scope="col" class="text-center">Name</th>
-                                <th scope="col" class="text-center">Email Address</th>
-                                <th scope="col" class="text-center">Phone Number</th>
-                                <th scope="col" class="text-center">Address</th>
+                                <th scope="col" class="text-center">Surname</th>
+                                <th scope="col" class="text-center">Email</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,7 +50,7 @@
     <!-- Include JavaScript file -->
     <script>
         var script = document.createElement('script');
-        script.src = '/Controllers/ContactsController/ContactsList.js?v=' + new Date().getTime();
+        script.src = '/Controllers/ContactsController/UserList.js?v=' + new Date().getTime();
         document.head.appendChild(script);
     </script>
 </body>

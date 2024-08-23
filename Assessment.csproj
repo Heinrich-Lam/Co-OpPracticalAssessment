@@ -70,14 +70,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\ContactsController\ContactRegister.js" />
     <Content Include="Controllers\ContactsController\ContactsList.js" />
     <Content Include="Controllers\ContactsController\ContactsMain.js" />
-    <Content Include="Controllers\ContactsController\frmContactsList.js" />
-    <Content Include="Controllers\ContactsController\frmContactsMain.js" />
+    <Content Include="Controllers\ContactsController\UserList.js" />
     <Content Include="Controllers\frmLogin.js" />
     <Content Include="Default.aspx" />
+    <Content Include="Views\ContactsView\frmContactRegister.html" />
     <Content Include="Views\ContactsView\frmContactsList.html" />
     <Content Include="Views\ContactsView\frmContactsMain.html" />
+    <Content Include="Views\ContactsView\frmUserList.html" />
     <Content Include="Views\frmLogin.html" />
     <Content Include="Web.config" />
   </ItemGroup>

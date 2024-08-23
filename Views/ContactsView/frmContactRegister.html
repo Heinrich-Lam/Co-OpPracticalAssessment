@@ -45,45 +45,45 @@
             <!-- Form for Contact Details -->
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Contact Details</h5>
+                    <h5 class="card-title text-center mb-4">User Details</h5>
 
                     <!-- Entry ID -->
                     <div class="mb-3 row">
                         <label for="txtContactEntryId" class="col-sm-4 col-form-label text-end">Entry ID</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtContactEntryId" disabled="disabled" />
+                            <input type="text" class="form-control" id="txtUserEntryId" disabled="disabled" />
                         </div>
                     </div>
 
                     <!-- Name -->
                     <div class="mb-3 row">
-                        <label for="txtName" class="col-sm-4 col-form-label text-end">Contact Name</label>
+                        <label for="txtName" class="col-sm-4 col-form-label text-end">User Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="txtName" />
                         </div>
                     </div>
 
+                    <!-- Surname -->
+                    <div class="mb-3 row">
+                        <label for="txtEmail" class="col-sm-4 col-form-label text-end">User Surname</label>
+                        <div class="col-sm-8">
+                            <input type="email" class="form-control" id="txtSurname" />
+                        </div>
+                    </div>
+
                     <!-- Email -->
                     <div class="mb-3 row">
-                        <label for="txtEmail" class="col-sm-4 col-form-label text-end">Email Address</label>
+                        <label for="txtPhone" class="col-sm-4 col-form-label text-end">Email</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="txtEmail" />
+                            <input type="text" class="form-control" id="txtEmail" />
                         </div>
                     </div>
 
-                    <!-- Phone Number -->
+                    <!-- Password -->
                     <div class="mb-3 row">
-                        <label for="txtPhone" class="col-sm-4 col-form-label text-end">Phone Number</label>
+                        <label for="txtAddress" class="col-sm-4 col-form-label text-end">Password</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtPhone" />
-                        </div>
-                    </div>
-
-                    <!-- Address -->
-                    <div class="mb-3 row">
-                        <label for="txtAddress" class="col-sm-4 col-form-label text-end">Contact Address</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="txtAddress" />
+                            <input type="text" class="form-control" id="txtPassword" />
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
     <!-- Include JavaScript file -->
     <script>
         var script = document.createElement('script');
-        script.src = '/Controllers/ContactsController/ContactsMain.js?v=' + new Date().getTime();
+        script.src = '/Controllers/ContactsController/ContactRegister.js?v=' + new Date().getTime();
         document.head.appendChild(script);
     </script>
 </body>

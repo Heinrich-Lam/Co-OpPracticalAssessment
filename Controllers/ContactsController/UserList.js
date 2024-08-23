@@ -5,31 +5,22 @@ var webAPIURL = "https://localhost:7145/api/Contact/";
 //var webAPIURL = "https://localhost:7077/api/Contact/";
 
 var dataTable = $('#dgvData tbody');
-var sctHistory = document.getElementById('statusFilter');
-
-var ContactHistory;
 
 //#region Database Transactions
 function DataLoad() {
     console.log("DataLoad is hit");
 
-    if (sctHistory.value == 0) {
-        ContactHistory = 0;
-    }
-    else if (sctHistory.value == 1) {
-        ContactHistory = 1;
-    }
 
     var postData = {
-        History: sctHistory.value
-        }
+        History: 0
+    }
 
     // Retrieve the JWT token from localStorage
     const jwtToken = localStorage.getItem('token');
 
     $.ajax({
         type: 'POST',
-        url: webAPIURL + 'Read/readContacts',
+        url: webAPIURL + 'Read/readUser',
         contentType: 'application/json',
         dataType: 'json',
         data: JSON.stringify(postData),
@@ -45,26 +36,6 @@ function DataLoad() {
             alert(ex);
         }
     });
-
-
-        //// Sends post data to C# side using a JSON format
-        //$.ajax({
-        //    type: 'POST',
-        //    url: webAPIURL + 'Read/readContacts',
-        //    contentType: 'application/json',
-        //    dataType: 'json',
-        //    data: JSON.stringify(postData),
-        //    success: function (data) {
-        //        console.log("API Data: ", data);
-        //        populateTable(data);
-        //    },
-        //    error: function (error) {
-        //        var ex = "Errors occurd while loading the List.";
-
-        //        alert(ex);
-        //    }
-        //});
-    
 }
 
 //#endregion
@@ -80,11 +51,9 @@ async function populateTable(data) {
         dataTable.append(row);
 
         var cells = [
-            createCell(data[i].ENTRY_ID, "word-wrap: break-word; overflow-wrap: break-word;"),
             createCell(data[i].NAME, " d-none d-lg-table-cell", "word-wrap: break-word; overflow-wrap: break-word;"),
+            createCell(data[i].SURNAME, "d-none d-md-table-cell", "word-wrap: break-word; overflow-wrap: break-wrap;"),
             createCell(data[i].EMAIL, "word-wrap: break-word; overflow-wrap: break-wrap;"),
-            createCell(data[i].PHONE, "d-none d-md-table-cell", "word-wrap: break-word; overflow-wrap: break-wrap;"),
-            createCell(data[i].ADDRESS, "d-none d-md-table-cell", "word-wrap: break-word; overflow-wrap: break-wrap;")
         ];
 
         cells.forEach(cell => row.append(cell));
@@ -92,7 +61,7 @@ async function populateTable(data) {
         // Moved event listener inside the loop
         row.addEventListener('click', function () {
             localStorage.setItem('ContactSelected', this.id);
-            window.location.href = "/Views/ContactsView/frmContactsMain.html?contactId=" + encodeURIComponent(this.id); // Include contactId as a query parameter
+            window.location.href = "/Views/ContactsView/frmContactRegister.html?contactId=" + encodeURIComponent(this.id); // Include contactId as a query parameter
         });
     }
 
@@ -123,20 +92,15 @@ function createCell(content, stylingClass, styling) {
     return cell;
 }
 
-var btnAdd = document.getElementById('btnAddContact');
-var btnSearch = document.getElementById('btnSearch');
-var btnUser = document.getElementById('btnViewUser');
+var btnAddUser = document.getElementById('btnAddUser');
+var btnBack = document.getElementById('btnBack');
 
-btnAdd.addEventListener('click', function () {
-    window.location.href = "/Views/ContactsView/frmContactsMain.html"; // Direct navigation
+btnAddUser.addEventListener('click', function () {
+    window.location.href = "/Views/ContactsView/frmContactRegister.html"; // Direct navigation
 });
 
-btnSearch.addEventListener('click', function () {
-    DataLoad();
-});
-
-btnUser.addEventListener('click', function () {
-    window.location.href = "/Views/ContactsView/frmUserList.html"; // Direct navigation
+btnBack.addEventListener('click', function () {
+    window.location.href = "/Views/ContactsView/frmContactsList.html"; // Direct navigation
 });
 
 // #endregion
