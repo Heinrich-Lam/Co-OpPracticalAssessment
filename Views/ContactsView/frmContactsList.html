@@ -9,26 +9,50 @@
 
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* Custom styles */
+        .btn-custom {
+            padding: 0.25rem 0.5rem; /* Smaller padding for smaller buttons */
+            font-size: 0.875rem; /* Smaller font size */
+        }
+
+        .table th, .table td {
+            text-align: center; /* Center align table text */
+        }
+
+        .table thead th {
+            background-color: #f8f9fa; /* Lighter background for headers */
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1; /* Highlight row on hover */
+        }
+
+        .dropdown-custom {
+            width: auto; /* Adjust dropdown width */
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
         <!-- TOOLBAR BUTTONS PANEL -->
         <div class="d-flex justify-content-start my-3">
-            <button type="button" class="btn btn-primary me-2" id="btnAddContact">
+            <button type="button" class="btn btn-primary btn-custom me-2" id="btnAddContact">
                 Create New Contact
             </button>
-            <button type="button" class="btn btn-primary me-2" id="btnViewUser">
+            <button type="button" class="btn btn-primary btn-custom me-2" id="btnViewUser">
                 View Saved User
             </button>
 
             <!-- Dropdown Box -->
-            <select class="form-select me-2" id="statusFilter">
+            <select class="form-select dropdown-custom me-2" id="statusFilter">
                 <option value="0">Active</option>
                 <option value="1">Inactive</option>
             </select>
 
             <!-- Search Button -->
-            <button type="button" class="btn btn-secondary" id="btnSearch">
+            <button type="button" class="btn btn-secondary btn-custom" id="btnSearch">
                 Search
             </button>
         </div>
@@ -39,12 +63,12 @@
                 <div class="table-responsive">
                     <!-- DataTable with headers -->
                     <table id="dgvData" class="table table-hover table-bordered table-striped table-sm">
-                        <thead class="table-light">
+                        <thead>
                             <tr>
-                                <th scope="col" class="text-center">Name</th>
-                                <th scope="col" class="text-center">Email Address</th>
-                                <th scope="col" class="text-center">Phone Number</th>
-                                <th scope="col" class="text-center">Address</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Address</th>
                             </tr>
                         </thead>
                         <tbody>

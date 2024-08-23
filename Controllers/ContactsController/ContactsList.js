@@ -59,7 +59,7 @@ async function populateTable(data) {
         dataTable.append(row);
 
         var cells = [
-            createCell(data[i].ENTRY_ID, "word-wrap: break-word; overflow-wrap: break-word;"),
+            //createCell(data[i].ENTRY_ID, "word-wrap: break-word; overflow-wrap: break-word;"),
             createCell(data[i].NAME, " d-none d-lg-table-cell", "word-wrap: break-word; overflow-wrap: break-word;"),
             createCell(data[i].EMAIL, "word-wrap: break-word; overflow-wrap: break-wrap;"),
             createCell(data[i].PHONE, "d-none d-md-table-cell", "word-wrap: break-word; overflow-wrap: break-wrap;"),

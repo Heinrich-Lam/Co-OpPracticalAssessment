@@ -9,15 +9,49 @@
 
     <!-- Include jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        /* Custom styles */
+        .btn-custom {
+            padding: 0.25rem 0.5rem; /* Smaller padding for smaller buttons */
+            font-size: 0.875rem; /* Smaller font size */
+        }
+
+        .table th, .table td {
+            text-align: center; /* Center align table text */
+            padding: 0.75rem; /* Add padding for better spacing */
+        }
+
+        .table thead th {
+            background-color: #f8f9fa; /* Lighter background for headers */
+            font-weight: bold; /* Make headers bold */
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping for even rows */
+        }
+
+        .table tbody tr:hover {
+            background-color: #e9ecef; /* Highlight row on hover */
+        }
+
+        .table th {
+            border-top: 2px solid #dee2e6; /* Add a thicker border on top of the header */
+        }
+
+        .table td, .table th {
+            border: 1px solid #dee2e6; /* Border around cells */
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
         <!-- TOOLBAR BUTTONS PANEL -->
         <div class="d-flex justify-content-start my-3">
-            <button type="button" class="btn btn-primary me-2" id="btnAddUser">
+            <button type="button" class="btn btn-primary btn-custom me-2" id="btnAddUser">
                 Create New User
             </button>
-            <button type="button" class="btn btn-primary me-2" id="btnBack">
+            <button type="button" class="btn btn-primary btn-custom me-2" id="btnBack">
                 View Contact Information
             </button>
         </div>
@@ -28,11 +62,11 @@
                 <div class="table-responsive">
                     <!-- DataTable with headers -->
                     <table id="dgvData" class="table table-hover table-bordered table-striped table-sm">
-                        <thead class="table-light">
+                        <thead>
                             <tr>
-                                <th scope="col" class="text-center">Name</th>
-                                <th scope="col" class="text-center">Surname</th>
-                                <th scope="col" class="text-center">Email</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Surname</th>
+                                <th scope="col">Email</th>
                             </tr>
                         </thead>
                         <tbody>
