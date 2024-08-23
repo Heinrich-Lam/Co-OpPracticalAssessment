@@ -1,7 +1,6 @@
 ﻿// Variables for API URL and DOM elements
 
 var webAPIURL = "https://localhost:7145/api/Contact/";
-//var webAPIURL = "https://localhost:7077/api/Contact/";
 
 var txtUserEntryId = document.getElementById('txtUserEntryId');
 var txtName = document.getElementById('txtName');
@@ -9,8 +8,6 @@ var txtSurname = document.getElementById('txtSurname');
 var txtEmail = document.getElementById('txtEmail');
 var txtPassword = document.getElementById('txtPassword');
 
-
-//var btnAdd = document.getElementById("btnAdd");
 var btnSave = document.getElementById("btnSave");
 var btnEdit = document.getElementById("btnEdit");
 var btnDelete = document.getElementById("btnDelete");
@@ -26,8 +23,6 @@ function showMessage(message, type) {
 
 // Event listener for Edit button
 btnEdit.addEventListener('click', function () {
-    // Assuming you have a way to select a contact to edit
-    // This part needs to be implemented based on how you manage selections
     updateUser();
 });
 
@@ -63,7 +58,6 @@ function insertUser() {
         dataType: 'json',
         data: JSON.stringify(parameterData),
         beforeSend: function (xhr) {
-            // Optional: Add JWT token if required
             const jwtToken = localStorage.getItem('token');
             if (jwtToken) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + jwtToken);
@@ -71,8 +65,7 @@ function insertUser() {
         },
         success: function () {
             var msg = "User Successfully saved into the system.";
-            alert(msg); // Using standard alert for success message
-            // Optionally, reset the form or navigate away
+            alert(msg);
             window.location.href = "/Views/frmLogin.html";
         },
         error: function (error) {
@@ -95,7 +88,6 @@ function deleteUser() {
         dataType: 'json',
         data: JSON.stringify(parameterData),
         beforeSend: function (xhr) {
-            // Optional: Add JWT token if required
             const jwtToken = localStorage.getItem('token');
             if (jwtToken) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + jwtToken);
@@ -104,7 +96,6 @@ function deleteUser() {
         success: function () {
             var msg = "Successfully removed from the System.";
             alert(msg); // Using standard alert for success message
-            // Redirect or refresh the page as needed
             window.location.href = "/Views/frmLogin.html";
         },
         error: function (error) {
@@ -131,7 +122,6 @@ function updateUser() {
         dataType: 'json',
         data: JSON.stringify(parameterData),
         beforeSend: function (xhr) {
-            // Optional: Add JWT token if required
             const jwtToken = localStorage.getItem('token');
             if (jwtToken) {
                 xhr.setRequestHeader('Authorization', 'Bearer ' + jwtToken);

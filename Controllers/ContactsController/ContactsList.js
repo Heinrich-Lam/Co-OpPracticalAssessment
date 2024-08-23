@@ -2,7 +2,6 @@
 //TestBrowserIsInternetExplorer();
 
 var webAPIURL = "https://localhost:7145/api/Contact/";
-//var webAPIURL = "https://localhost:7077/api/Contact/";
 
 var dataTable = $('#dgvData tbody');
 var sctHistory = document.getElementById('statusFilter');
@@ -44,27 +43,7 @@ function DataLoad() {
             var ex = "Errors occurred while loading the List.";
             alert(ex);
         }
-    });
-
-
-        //// Sends post data to C# side using a JSON format
-        //$.ajax({
-        //    type: 'POST',
-        //    url: webAPIURL + 'Read/readContacts',
-        //    contentType: 'application/json',
-        //    dataType: 'json',
-        //    data: JSON.stringify(postData),
-        //    success: function (data) {
-        //        console.log("API Data: ", data);
-        //        populateTable(data);
-        //    },
-        //    error: function (error) {
-        //        var ex = "Errors occurd while loading the List.";
-
-        //        alert(ex);
-        //    }
-        //});
-    
+    });    
 }
 
 //#endregion

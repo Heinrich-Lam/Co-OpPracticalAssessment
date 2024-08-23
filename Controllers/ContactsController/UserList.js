@@ -2,7 +2,6 @@
 //TestBrowserIsInternetExplorer();
 
 var webAPIURL = "https://localhost:7145/api/Contact/";
-//var webAPIURL = "https://localhost:7077/api/Contact/";
 
 var dataTable = $('#dgvData tbody');
 
